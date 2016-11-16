@@ -14,8 +14,10 @@ int main()
 	user=0;
 	int num,vaga[51],opcao;
 	int diaS[user],mesS[user],horaS[user],minS[user];
-	int hr,min,seg,preco;
+	int hr,min,seg;
 	int i,count;
+	int di,df;
+	int quest;
 	char placa[user][8], cor[user][16], modelo[user][16];
 	float vhr,vmin,vt;
 	//ctime
@@ -38,9 +40,9 @@ int main()
 		printf ("\tSistema Gerenciador de Estacionamento\n");
 		
 		printf ("\nValores: \n");
-		printf ("Para uma hora sera cobrado: R$ 15,00\n");
-		printf ("Para cada 30 min sera cobrado: R$ 7,50\n");
-		printf ("Para cada 01 min sera cobrado: R$ 0,25\n");
+		printf ("Para uma hora sera cobrado: R$ 6,00\n");
+		printf ("Para cada 30 min sera cobrado: R$ 3,00\n");
+		printf ("Para cada 01 min sera cobrado: R$ 0,10\n");
 		
 		printf ("\nMenu: \n");
 		printf ("1- Entrada veiculo\n");
@@ -77,19 +79,19 @@ int main()
 						time(&dataIni[user]);
 						dataIniPnt = localtime(&dataIni[user]);
 						
-						printf("\n\tEntrada: %2d/%2d/%4d - %2d:%2d:%2d \n\n",dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
+						printf("\n\tEntrada: %02d/%02d/%04d - %02d:%02d:%02d \n",dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
 						
-						vaga[num]=num; //ATIVA_VAGA
+						vaga[num]=num;
 						
 					}
 					else
 					{
-						printf("\n\nVaga ocupada, escolha outra vaga.\n\n");
+						printf("\n\tVaga ocupada, escolha outra vaga.\n\n");
 					}
 				}
 				else
 				{
-					printf("\n\nVaga nao existente!\n\n");
+					printf("\n\tVaga nao existente!\n\n");
 				}
 			
 			system("pause");
@@ -117,37 +119,107 @@ int main()
 						printf("Minutos:");
 						scanf("%d", &minS[user]);
 						
+						while(diaS[user] == 0 || diaS[user] > 31)
+						{
+							printf("\n Dia invalido, lembre-se: Dias vao de 1 a 31.\n");
+							
+							printf("Dia:");
+							scanf("%d", &diaS[user]);
+							
+						}
+						
+						while(mesS[user] == 0 || mesS[user] > 12)
+						{
+							printf("\n Mes invalido, lembre-se: Meses vao de 1 a 12.\n");
+							
+							printf("Mes:");
+							scanf("%d", &mesS[user]);
+							
+						}
+						
+						while(horaS[user] >= 24 || horaS[user] >= 60)
+						{
+							printf("\n Hora e(ou) minuto invalidos, lembre-se: Horas vao de 0 a 23 e minutos de 0 a 59\n");
+
+							printf("Horas:");
+							scanf("%d", &horaS[user]);
+							printf("Minutos:");
+							scanf("%d", &minS[user]);
+							
+						}
+						
 						//atribui valores - dataFim
 						dataFimPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
 						dataFimPnt->tm_mon=mesS[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
 						dataFimPnt->tm_mday=diaS[user]; //
 						dataFimPnt->tm_hour=horaS[user]; //
 						dataFimPnt->tm_min=minS[user]; //
-						dataFimPnt->tm_sec=0; //printf("\year - %d",ty);
-						dataFim[user]=mktime(dataFimPnt); //salva os valores
-					
+						dataFimPnt->tm_sec=0; //
+						dataFim[user]=mktime(dataFimPnt); //
+						
+						di=dataIni[user];//att
+						df=dataFim[user];//att
+						
+						while (di > df)
+						{
+							printf("\nData de entrada maior que Data de saida, tente novamente!\n");
+							printf("Dia:");
+							scanf("%d", &diaS[user]);
+							printf("Mes:");
+							scanf("%d", &mesS[user]);
+							printf("Horas:");
+							scanf("%d", &horaS[user]);
+							printf("Minutos:");
+							scanf("%d", &minS[user]);
+							
+							//atribui valores - dataFim
+							dataFimPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+							dataFimPnt->tm_mon=mesS[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+							dataFimPnt->tm_mday=diaS[user]; //
+							dataFimPnt->tm_hour=horaS[user]; //
+							dataFimPnt->tm_min=minS[user]; //
+							dataFimPnt->tm_sec=0; //printf("\year - %d",ty);
+							dataFim[user]=mktime(dataFimPnt); //salva os valores
+							
+							di=dataIni[user];
+							df=dataFim[user];
+						}
+						
 						//calcula diferenca
 						diffTemp = difftime(dataFim[user], dataIni[user]);
 						converterTempo(diffTemp, &hr, &min, &seg);
 						
-						vhr = hr * 15;
-						vmin = min * 0.25;
+						vhr = hr * 6;
+						vmin = min * 0.1;
 						vt = vhr+vmin;
 						
 						printf("\nO veiculo ficou alocado por: %dH : %dM :%dS \n",hr,min,seg);
 						printf("\nO VALOR A SER PAGO E: R$%.2f\n",vt); // IMPRESSÃO DO PRECO
 						
-						vaga[num]=0;//DESATIVA_VAGA
+						printf("\nPagamento Efetuado? 0-Nao | 1-Sim : ");
+						scanf("%d",&quest);
+						if(quest==0)
+						{
+							printf("\n\tPagamento Nao Efetuado!\n\n");
+							vaga[num]=num;
+						}
+						else
+						{
+							printf("\n\tPagamento Efetuado!");
+							printf("\n\tVaga Liberada!\n\n");
+							vaga[num]=0;
+						}
+						
 					}
 					else
 					{
-						printf("\n\nVaga vazia!\n\n");
+						printf("\n\tVaga vazia!\n\n");
 					}
 					
 				}
 				else
 				{
-					printf("\n\nVaga nao existente!\n\n");
+					printf("\n\tVaga nao existente!\n\n");
 				}
 				
 				system("pause");
@@ -167,7 +239,7 @@ int main()
 							//time(&dataIni[user]);
 							dataIniPnt = localtime(&dataIni[i]);
 						
-							printf("|  %d  |  %s  |  %s  |  %s  | %2d/%2d/%4d - %2d:%2d:%2d | \n",vaga[i],placa[i],cor[i],modelo[i],dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
+							printf("|  %d  |  %s  |  %s  |  %s  | %02d/%02d/%04d - %02d:%02d:%02d | \n",vaga[i],placa[i],cor[i],modelo[i],dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
 						    count++;
 						}						
 					}
@@ -182,11 +254,11 @@ int main()
 				default:
 					if(opcao==0)
 					{
-					   	printf("Programa encerrdo com sucesso.\n");	
+					   	printf("\n\tPrograma encerrado com sucesso.\n");	
 					}
 					else
 					{
-						printf("Codigo Inexistente.\n");
+						printf("\n\tCodigo Inexistente.\n");
 						system("pause");
 						system("cls");
 					}
