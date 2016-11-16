@@ -1,0 +1,33 @@
+/*
+						//atribui valores - dataFim
+						dataFimPnt->tm_year=0; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						dataFimPnt->tm_mon=0; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						dataFimPnt->tm_mday=0; //
+						dataFimPnt->tm_hour=0; //
+						dataFimPnt->tm_min=0; //
+						dataFimPnt->tm_sec=0; //
+						dataFim[user]=mktime(dataFimPnt); //salva os valores
+						*/
+						
+						/*
+						//atribui valores - dataFim
+						dataFimPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						dataFimPnt->tm_mon=mesS[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						dataFimPnt->tm_mday=diaS[user]; //
+						dataFimPnt->tm_hour=horaS[user]; //
+						dataFimPnt->tm_min=minS[user]; //
+						dataFimPnt->tm_sec=0; //
+						dataFim[user]=mktime(dataFimPnt); //salva os valores
+						*/
+						
+						/*					
+						//teste
+						int tyF,tmeF,tdF,thF,tmF,tsF;
+						tyF=dataFimPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						tmeF=dataFimPnt->tm_mon=mesS[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						tdF=dataFimPnt->tm_mday=diaS[user]; //
+						thF=dataFimPnt->tm_hour=horaS[user]; //
+						tmF=dataFimPnt->tm_min=minS[user]; //
+						tsF=dataFimPnt->tm_sec=0; //
+						*/
+						

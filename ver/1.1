@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+void limparVagas(int *vaga, int *num);
+
+int main()
+{
+	int num,vaga[51],opcao;
+	char placa[num][8], cor[num][16], modelo[num][16];
+	int diaE[num],mesE[num],horaE[num],minE[num];
+	int diaS[num],mesS[num],horaS[num],minS[num];
+	//ctime_ini
+    time_t dataIni[num],dataFim[num];
+    dataIni[num]=0; 
+	dataFim[num]=0;
+    tm *dataIniPont=localtime(&dataIni[num]); //seta
+	tm *dataFimPont=localtime(&dataFim[num]); //seta
+	//ctime_fim
+	
+	printf("ok");
+return 0;
+}

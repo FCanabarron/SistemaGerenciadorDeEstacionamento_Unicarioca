@@ -1,0 +1,82 @@
+do
+	{
+		printf ("\n\n");
+		printf ("\t823 - INTRODUCAO A PROGRAMACAO 2016/2\n");
+		printf ("\t2016200484 - Lucas Moreira Peres Barga\n");
+		printf ("\tSistema Gerenciador de Estacionamento\n");
+		
+		printf ("\n\nMenu: \n");
+		printf ("1- Entrada veiculo\n");
+		printf ("2- Saida veiculo\n");
+		printf ("3- XXX\n");
+		printf ("0- Sair do programa\n");
+		
+		printf("\nOpcao: ");
+		scanf("%d",&opcao);
+		
+		switch(opcao)
+		{
+			case 1:
+				//ENTRADA
+				printf("\n\n Numero da vaga (1~50): ");
+				scanf ("%d", &num);
+				
+				if(num<=50)
+				{
+					if(vaga[num] == 0)
+					{
+							printf("\n\n Vaga Disponivel!\n\n");
+							
+							printf("\nInformacoes do veiculo\n");
+							printf("Placa:");
+							scanf("%s", &placa[num]);
+							printf("Cor:");
+							scanf("%s", &cor[num]);
+							printf("Modelo:");
+							scanf("%s", &modelo[num]);
+							
+							printf("\nData e hora de entrada\n");
+							printf("Dia:");
+							scanf("%d", &diaE[num]);
+							printf("Mes:");
+							scanf("%d", &mesE[num]);
+							printf("Horas:");
+							scanf("%d", &horaE[num]);
+							printf("Minutos:");
+							scanf("%d", &minE[num]);
+							
+							
+							//atribui valores
+							dataIniPont->tm_mday =diaE[num];
+							dataIniPont->tm_mon=mesE[num];
+							dataIniPont->tm_hour=horaE[num];
+							dataIniPont->tm_min=minE[num];
+							
+							/*
+							//TESTE
+							int td,tm,th,tmin;
+							td=dataIniPont->tm_mday;
+							tm=dataIniPont->tm_mon;
+							th=dataIniPont->tm_hour;
+							tmin=dataIniPont->tm_min;
+							
+							printf("%d,%d,%d,%d",td,tm,th,tmin);
+						    */
+						    
+							vaga[num] = 1;
+					}
+					else
+					{
+						printf("\n\nVaga ocupada, escolha outra vaga.\n\n");
+					}
+				}
+				else
+				{
+					printf("\n\nVaga nao existente!\n\n");
+				}
+				
+				break;
+				
+		}
+		
+	}while(opcao!=0);

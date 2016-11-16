@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+void limparVagas(int *vaga, int *num);
+
+int main()
+{
+	int num,vaga[51],opcao;
+	char placa[num][8], cor[num][16], modelo[num][16];
+	int diaE[num],mesE[num],horaE[num],minE[num];
+	int diaS[num],mesS[num],horaS[num],minS[num];
+	//ctime_ini
+    time_t dataIni[num],dataFim[num];
+    dataIni[num]=0; 
+	dataFim[num]=0;
+    tm *dataIniPont=localtime(&dataIni[num]); //seta
+	tm *dataFimPont=localtime(&dataFim[num]); //seta
+	//ctime_fim
+	
+	printf("ok");
+	
+	do
+	{
+		printf ("\n\n");
+		printf ("\t823 - INTRODUCAO A PROGRAMACAO 2016/2\n");
+		printf ("\t2016200484 - Lucas Moreira Peres Barga\n");
+		printf ("\tSistema Gerenciador de Estacionamento\n");
+		
+		printf ("\n\nMenu: \n");
+		printf ("1- Entrada veiculo\n");
+		printf ("2- Saida veiculo\n");
+		printf ("3- XXX\n");
+		printf ("0- Sair do programa\n");
+		
+		printf("\nOpcao: ");
+		scanf("%d",&opcao);
+		
+	}while(opcao!=0);
+	
+return 0;
+
+}

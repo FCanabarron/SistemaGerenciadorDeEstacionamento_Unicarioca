@@ -1,0 +1,32 @@
+							printf("\n\n Vaga Disponivel!\n\n");
+							
+							
+							printf("\nInformacoes do veiculo\n");
+							printf("Placa:");
+							scanf("%s", &placa[num]);
+							printf("Cor:");
+							scanf("%s", &cor[num]);
+							printf("Modelo:");
+							scanf("%s", &modelo[num]);
+							
+							printf("\nData e hora de entrada\n");
+							printf("Dia:");
+							scanf("%d", &diaE[num]);
+							printf("Mes:");
+							scanf("%d", &mesE[num]);
+							printf("Horas:");
+							scanf("%d", &horaE[num]);
+							printf("Minutos:");
+							scanf("%d", &minE[num]);
+							
+							
+							//atribui valores - dataIni
+							dataIniPont->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						    dataIniPont->tm_mon=mesE[num]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						    dataIniPont->tm_mday=diaE[num]; //
+						    dataIniPont->tm_hour=horaE[num]; //
+						    dataIniPont->tm_min=minE[num]; //
+						    dataIniPont->tm_sec=0; //
+						    dataIni[num]=mktime(dataIniPont); //salva os valores
+							
+							vaga[num] = 1;

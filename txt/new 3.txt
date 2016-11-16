@@ -1,0 +1,5 @@
+
+	time_t dataIni[x],dataFim[x];
+	tm *dataIniPnt=localtime(&dataIni[x]);
+	tm *dataFimPnt=localtime(&dataFim[x]);
+	

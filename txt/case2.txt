@@ -1,0 +1,24 @@
+	
+			case 2:
+				//SAIDA
+				printf("\n\n Numero da vaga (1~50): ");
+				scanf ("%d", &num);
+				
+				if(num<=50)
+				{
+					if(vaga[num] != 0)
+					{
+						printf("%s",&placa[total]);
+					}
+					else
+					{
+						printf("\n\nVaga vazia!\n\n");
+					}
+					
+				}
+				else
+				{
+					printf("\n\nVaga nao existente!\n\n");
+				}
+				
+				break;	

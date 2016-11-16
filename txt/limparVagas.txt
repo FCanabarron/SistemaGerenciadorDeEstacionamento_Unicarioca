@@ -1,0 +1,8 @@
+void limparVagas(int *vaga, int *num)
+{	
+	for (*num = 1; *num <= 50;*num=*num+1)
+	{
+		vaga[*num] = 0;;
+		//printf("\n%d", vaga[*num]);
+	}
+}	

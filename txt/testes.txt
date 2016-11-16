@@ -1,0 +1,21 @@
+
+						//teste
+						int ty,tme,td,th,tm,ts;
+						ty=dataIniPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						tme=dataIniPnt->tm_mon=mesE[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						td=dataIniPnt->tm_mday=diaE[user]; //
+						th=dataIniPnt->tm_hour=horaE[user]; //
+						tm=dataIniPnt->tm_min=minE[user]; //
+						ts=dataIniPnt->tm_sec=0; //
+						
+						printf("\n1- %d,%d,%d,%d,%d,%d",ty,tme,td,th,tm,ts);
+						
+						//teste
+						int tyF,tmeF,tdF,thF,tmF,tsF;
+						ty=dataFimPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						tme=dataFimPnt->tm_mon=mesE[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						td=dataFimPnt->tm_mday=diaE[user]; //
+						th=dataFimPnt->tm_hour=horaE[user]; //
+						tm=dataFimPnt->tm_min=minE[user]; //
+						ts=dataFimPnt->tm_sec=0; //
+						

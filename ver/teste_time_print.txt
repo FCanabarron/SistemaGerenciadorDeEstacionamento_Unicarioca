@@ -1,0 +1,19 @@
+			//teste
+						int ty,tme,td,th,tm,ts;
+						ty=dataIniPnt->tm_year; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
+						tme=dataIniPnt->tm_mon; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						td=dataIniPnt->tm_mday; //
+						th=dataIniPnt->tm_hour; //
+						tm=dataIniPnt->tm_min; //
+						ts=dataIniPnt->tm_sec; //
+						
+						printf("\nyear - %d",ty);
+						printf("\nmon - %d",tm);
+						printf("\nday - %d",td);
+						printf("\nhour - %d",th);
+						printf("\nmin - %d",tm);
+						
+						printf("ctime is %s\n", ctime(&dataIni[user]));	
+
+						//teste
+						
