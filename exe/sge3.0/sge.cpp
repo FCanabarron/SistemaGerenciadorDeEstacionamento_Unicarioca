@@ -157,7 +157,7 @@ int main()
 				case 3:
 					// RELACAO
 					printf("|------------RELACAO DE VEICULOS ALOCADOS------------|\n");
-					printf("| Vaga | Placa | Cor | Modelo |\n");
+					printf("| Vaga | Placa | Cor | Modelo | Data de Entrada\n");
 					count=0;
 					
 					for (i = 1; i <=50 ;i++)
