@@ -173,7 +173,7 @@ int main()
 					}
 					
 					printf("|----------------------------------------------------|\n ");
-					printf(" TOTAL DE CARROS => %d \n\n",count);
+					printf(" TOTAL DE CARROS => %d \n",count);
 					
 				system("pause");
 				system("cls");
