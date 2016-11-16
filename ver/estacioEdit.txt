@@ -78,17 +78,17 @@ printf("MINUTOS [XX]: ");
 scanf("%i", &minutosEntrada[usuariosTotal]);
 
 
-while(horasEntrada[usuariosTotal] >= 24 || minutosEntrada[usuariosTotal] >= 60){
+		while(horasEntrada[usuariosTotal] >= 24 || minutosEntrada[usuariosTotal] >= 60){
 
-printf("\n Hora e(ou) minuto invalidos, lembre-se: Horas vao de 0 a 23 e minutos de 0 a 59\n\n");
+		printf("\n Hora e(ou) minuto invalidos, lembre-se: Horas vao de 0 a 23 e minutos de 0 a 59\n\n");
 
-printf("HORA [XX]:");
-scanf("%i", &horasEntrada[usuariosTotal]);
+		printf("HORA [XX]:");
+		scanf("%i", &horasEntrada[usuariosTotal]);
 
-printf("MINUTOS [XX]:");
-scanf("%i", &minutosEntrada[usuariosTotal]);
+		printf("MINUTOS [XX]:");
+		scanf("%i", &minutosEntrada[usuariosTotal]);
 
-}
+		}
 
 vaga[escolha] = 1;
 
