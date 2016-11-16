@@ -64,7 +64,7 @@ int main()
 					if(vaga[num] == 0)
 					{
 						
-						printf("\n\n Vaga Disponivel!\n\n");
+						printf("\n Vaga Disponivel!\n");
 						
 						printf("\nInformacoes do veiculo\n");
 						printf("Placa:");
@@ -77,7 +77,7 @@ int main()
 						time(&dataIni[user]);
 						dataIniPnt = localtime(&dataIni[user]);
 						
-						printf("\n\nEntrada: %2d/%2d/%4d - %2d:%2d:%2d \n\n",dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
+						printf("\n\tEntrada: %2d/%2d/%4d - %2d:%2d:%2d \n\n",dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
 						
 						vaga[num]=num; //ATIVA_VAGA
 						

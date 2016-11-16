@@ -10,21 +10,19 @@ void limparVaga(int *vaga, int *num);
 
 int main()
 {
-	int user;
+	int num,user,vaga[51],opcao;
 	user=0;
-	int num,vaga[51],opcao;
-	int diaS[user],mesS[user],horaS[user],minS[user];
-	int hr,min,seg,preco;
-	int i,count;
 	char placa[user][8], cor[user][16], modelo[user][16];
-	float vhr,vmin,vt;
+	int diaS[user],mesS[user],horaS[user],minS[user];
 	//ctime
 	time_t dataIni[user], dataFim[user];
 	tm *dataFimPnt=localtime(&dataFim[user]); //seta
 	double diffTemp;
 	struct tm *dataIniPnt;
 	//ctime
-
+	int hr,min,seg,preco;
+	float vhr,vmin,vt;
+	int i,count;
 	
 	
 						
@@ -77,6 +75,9 @@ int main()
 						time(&dataIni[user]);
 						dataIniPnt = localtime(&dataIni[user]);
 						
+						printf("ctime is %s\n", ctime(&dataIni[user]));//TESTE
+						printf("\n\nHora (string).....: %02d:%02d:%02d\n\n", dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
+						printf("\n\nHora (string).....: %d:%d\n\n",dataIniPnt->tm_min, dataIniPnt->tm_sec);
 						printf("\n\nEntrada: %2d/%2d/%4d - %2d:%2d:%2d \n\n",dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
 						
 						vaga[num]=num; //ATIVA_VAGA
@@ -118,8 +119,8 @@ int main()
 						scanf("%d", &minS[user]);
 						
 						//atribui valores - dataFim
-						dataFimPnt->tm_year=2016-1900; //ano=2016 (é necessário subtrair 1900, pois os anos iniciam em 1900)
-						dataFimPnt->tm_mon=mesS[user]-1; //mês=maio (é necessário subtrair 1, pois os meses iniciam no zero)
+						dataFimPnt->tm_year=2016-1900; //ano=2016 (Ã© necessÃ¡rio subtrair 1900, pois os anos iniciam em 1900)
+						dataFimPnt->tm_mon=mesS[user]-1; //mÃªs=maio (Ã© necessÃ¡rio subtrair 1, pois os meses iniciam no zero)
 						dataFimPnt->tm_mday=diaS[user]; //
 						dataFimPnt->tm_hour=horaS[user]; //
 						dataFimPnt->tm_min=minS[user]; //
@@ -135,7 +136,7 @@ int main()
 						vt = vhr+vmin;
 						
 						printf("\nO veiculo ficou alocado por: %dH : %dM :%dS \n",hr,min,seg);
-						printf("\nO VALOR A SER PAGO E: R$%.2f\n",vt); // IMPRESSÃO DO PRECO
+						printf("\nO VALOR A SER PAGO E: R$%.2f\n",vt); // IMPRESSÃƒO DO PRECO
 						
 						vaga[num]=0;//DESATIVA_VAGA
 					}
@@ -164,10 +165,7 @@ int main()
 					{
 						if(vaga[i] != 0)
 						{
-							//time(&dataIni[user]);
-							dataIniPnt = localtime(&dataIni[i]);
-						
-							printf("|  %d  |  %s  |  %s  |  %s  | %2d/%2d/%4d - %2d:%2d:%2d | \n",vaga[i],placa[i],cor[i],modelo[i],dataIniPnt->tm_mday, dataIniPnt->tm_mon+1,dataIniPnt->tm_year+1900, dataIniPnt->tm_hour, dataIniPnt->tm_min, dataIniPnt->tm_sec);
+							printf("|  %d  |  %s  |  %s  |  %s  | \n",vaga[i],placa[i],cor[i],modelo[i]);
 						    count++;
 						}						
 					}
